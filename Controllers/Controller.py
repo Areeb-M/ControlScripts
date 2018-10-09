@@ -7,7 +7,7 @@ class Controller:
         MotorController.set_turn(0)
         MotorController.update_car()
 
-    def update(self):
+    def update(self, data):
         raise NotImplementedError()
 
     def HALT(self):
