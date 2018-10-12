@@ -18,4 +18,7 @@ class AutonomousControl(threading.Thread):
             while True:
                 pass
         except RacecarException:
-            pass
+
+            sys.exit(0)
+
+
