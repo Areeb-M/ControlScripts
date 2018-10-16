@@ -2,6 +2,7 @@ import MotorController
 
 
 class Controller:
+    halt = False
     def __init__(self):
         MotorController.set_velocity(0)
         MotorController.set_turn(0)
@@ -11,15 +12,20 @@ class Controller:
         raise NotImplementedError()
 
     def HALT(self):
-        raise NotImplementedError()
+        self.set_velocity(0)
+        self.set_turn(0)
+        Controller.halt = True
 
     def update_car(self):
-        MotorController.update_car()
+        if not Controller.halt:
+            MotorController.update_car()
 
     def set_velocity(self, v):
-        MotorController.set_velocity(v)
+        if not Controller.halt:
+            MotorController.set_velocity(v)
 
     def set_turn(self, t):
-        MotorController.set_turn(t)
+        if not Controller.halt:
+            MotorController.set_turn(t)
 
     #def

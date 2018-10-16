@@ -4,13 +4,18 @@ import numpy as np
 
 class DistanceInterrupt(Controller):
     def __init__(self):
-        pass
+        Controller.__init__(self)
 
-    def update(self, data):
-        pass
+    def update(self, ScanData):
+        data = ScanData.ranges
+        left = 120
+        right = 150
+        threshold = 0.5
+        avg_distance = average_distance(data, left, right)
 
-    def HALT(self):
-        pass
+        if avg_distance < threshold:
+            self.HALT()
+
 
 def average_distance(data, a=0, b=270):
     PPD = 4 # points per degree
