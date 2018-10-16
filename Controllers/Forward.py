@@ -5,8 +5,12 @@ import numpy as np
 class Forward(Controller):
     def __init__(self):
         Controller.__init__(self)
+        self.set_turn(0)
+        self.set_velocity(1)
 
     def update(self, ScanData):
+        pass
+        '''
         data = ScanData.ranges
         left = 120
         right = 150
@@ -18,6 +22,7 @@ class Forward(Controller):
         else:
             self.set_velocity(1)
             self.set_turn(0)
+        '''
 
     def HALT(self):
         self.set_velocity(0)
