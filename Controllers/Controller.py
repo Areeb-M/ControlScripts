@@ -16,4 +16,10 @@ class Controller:
     def update_car(self):
         MotorController.update_car()
 
+    def set_velocity(self, v):
+        MotorController.set_velocity(v)
+
+    def set_turn(self, t):
+        MotorController.set_turn(t)
+
     #def

@@ -11,14 +11,27 @@ def average_distance(data, a=0, b=270):
     return arr.mean()
 
 
+max = -1000
+min = 10000000
+
+
 def print_data(data):
-    print(average_distance(data.ranges, 120, 150))
+    global max, min
+    index = 500
+    if data.ranges[index] > max:
+        max = data.ranges[index]
+    if data.ranges[index] < min:
+        min = data.ranges[index]
+    print("Max:"+str(max))
+    print("Min:"+str(min))
+
+    #print(average_distance(data.ranges, 120, 150))
     #print(len(data.ranges))
     #print(data.intensities)
 
 
 rospy.init_node('hello_darkness')
-pub = rospy.Subscriber('scan', LaserScan, print_data, queue_size=2)
+pub = rospy.Subscriber('scan', LaserScan, print_data, queue_size=1)
 
 
 while not rospy.is_shutdown():
