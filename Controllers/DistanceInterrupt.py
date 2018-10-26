@@ -13,7 +13,7 @@ class DistanceInterrupt(Controller):
         threshold = 0.5
         avg_distance = average_distance(data, left, right)
 
-        if avg_distance < threshold:
+        if avg_distance < threshold and self.get_velocity() > 0:
             self.HALT()
 
 

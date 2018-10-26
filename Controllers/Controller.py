@@ -3,6 +3,7 @@ import MotorController
 
 class Controller:
     halt = False
+
     def __init__(self):
         MotorController.set_velocity(0)
         MotorController.set_turn(0)
@@ -16,6 +17,9 @@ class Controller:
         self.set_turn(0)
         Controller.halt = True
 
+    def UNHALT(self):
+        Controller.halt = False
+
     def update_car(self):
         if not Controller.halt:
             MotorController.update_car()
@@ -28,4 +32,8 @@ class Controller:
         if not Controller.halt:
             MotorController.set_turn(t)
 
-    #def
+    def get_velocity(self):
+        return MotorController.get_velocity()
+
+    def get_turn(self):
+        return MotorController.get_turn()

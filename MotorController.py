@@ -49,6 +49,11 @@ def update_car():
     pub.publish(msg)
 
 
+def HALT():
+    set_velocity(0)
+    set_turn(0)
+    update_car()
+
 '''
 forward_velocity = 0.0
 turn = 0.0

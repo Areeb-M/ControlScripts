@@ -9,16 +9,16 @@ import sys
 import timeit
 import PrimaryInterface as PI
 from Interrupts import *
-from Controllers.Forward import Forward
+from Controllers.Middle import Middle
 from Controllers.DistanceInterrupt import DistanceInterrupt
 from sensor_msgs.msg import *
-
+from MotorController import HALT
 
 #class AutonomousControl(threading.Thread):
 class AutonomousControl:
     def __init__(self):
         safety_controller = DistanceInterrupt()
-        controller = Forward()
+        controller = Middle()
         PI.subscribe_topic("/scan", LaserScan)
         PI.register_callback("/scan", controller.update)
         PI.register_callback("/scan", safety_controller.update)
@@ -34,3 +34,4 @@ class AutonomousControl:
 
 controller = AutonomousControl()
 controller.run()
+HALT()

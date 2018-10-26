@@ -30,9 +30,9 @@ def print_data(data):
     #print(data.intensities)
 
 
-rospy.init_node('hello_darkness')
-pub = rospy.Subscriber('scan', LaserScan, print_data, queue_size=1)
+#rospy.init_node('hello_darkness')
+#pub = rospy.Subscriber('scan', LaserScan, print_data, queue_size=1)
 
 
-while not rospy.is_shutdown():
-    pass
+#while not rospy.is_shutdown():
+#    pass
