@@ -4,9 +4,9 @@ import numpy as np
 from sensor_msgs.msg import LaserScan
 
 
-def average_distance(data, a=0, b=270):
-    PPD = 4 # points per degree
-    data = data[a*PPD:b*PPD]
+def average_distance(data, a=0, b=240):
+    PPD = 4.5 # points per degree
+    data = data[int(a*PPD):int(b*PPD)]
     arr = np.array(data)
     return arr.mean()
 
