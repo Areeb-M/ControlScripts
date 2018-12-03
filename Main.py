@@ -19,9 +19,9 @@ class AutonomousControl:
     def __init__(self):
         safety_controller = DistanceInterrupt()
         controller = Middle()
-        PI.subscribe_topic("/scan", LaserScan)
-        PI.register_callback("/scan", controller.update)
-        PI.register_callback("/scan", safety_controller.update)
+        PI.subscribe_topic("/filtered", LaserScan)
+        PI.register_callback("/filtered", controller.update)
+        PI.register_callback("/filtered", safety_controller.update)
 
     def run(self):
         sys.settrace(do_nothing_trace_function)

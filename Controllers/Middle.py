@@ -10,7 +10,7 @@ class Middle(Controller):
     def __init__(self):
         Controller.__init__(self)
         self.set_turn(0)
-        self.set_velocity(6)
+        self.set_velocity(1)
         self.mode = 0
         self.E0 = 0
         self.E1 = 0
@@ -36,7 +36,7 @@ class Middle(Controller):
 
         print(diff)
 
-        self.set_velocity(6 * (1 - diff))
+        self.set_velocity(1)#- diff))
         self.set_turn(diff)
 
         self.E0 = self.E1
